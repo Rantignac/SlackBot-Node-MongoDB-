@@ -7,12 +7,11 @@
     "test": "npm test",
     "start": "node index.js"
   },
-  "author": "Rac",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "bluebird": "~3.5.1",
+    "bluebird": "^3.5.1",
     "mongoose": "~4.11.14",
-    "slackbots": "~0.3.0",
-    "winston": "^2.4.0"
+    "slackbots": "^0.3.0"
   }
 }
