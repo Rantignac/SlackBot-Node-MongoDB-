@@ -10,20 +10,21 @@ var bot = new SlackBot({
 
 bot.on('start', function() {
     console.log('Bot started');
-    if(bot){
-        var params = {
-            icon_emoji: ':cat:'
-        };
-        bot.postMessageToChannel('général','Bonjour',params)
-    }
 
 });
 
 
-/**
- * @param {object} data
- */
-bot.on('message', function(data) {
-    // all ingoing events https://api.slack.com/rtm
-    console.log(data);
+let users =[];
+let botUsers = bot.getUsers();
+
+bot.on('message', function handleRtmMessage(message) {
+    users = botUsers._value.members;
+    const user = users.find(user => user.id === message.user);
+
+    if (message.type === 'message' && message.text) {
+
+            if(message.text==='bonjour' || message.text==='Bonjour'){
+                bot.postMessage(message.channel, 'Bonjour' +' '+user.name)
+        }
+    }
 });
